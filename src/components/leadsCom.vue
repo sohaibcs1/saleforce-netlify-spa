@@ -334,6 +334,37 @@ const pdfMaker = function (headers, data, title) {
   });
 };
 
+const rows123 = [
+  {
+    last_checked: "12 AM 23 Feb 2023",
+    full_name: "Muchel Oddoye",
+    email_address: "Muchel@gmail.com",
+    job_title: "Team Lead",
+    company: "Saleforce",
+  },
+  {
+    last_checked: "1 AM 23 Feb 2023",
+    full_name: "Adnan",
+    email_address: "Adnan@gmail.com",
+    job_title: "Software Developer",
+    company: "Google",
+  },
+  {
+    last_checked: "10 AM 23 Feb 2022",
+    full_name: "Breaker",
+    email_address: "Breaker@gmail.com",
+    job_title: "Enginer",
+    company: "Microsoft",
+  },
+  {
+    last_checked: "9 AM 23 Feb 2022",
+    full_name: "Jake",
+    email_address: "Jake@gmail.com",
+    job_title: "Professor",
+    company: "GV University",
+  },
+];
+
 const columns = [
   {
     name: "desc",
@@ -428,8 +459,8 @@ export default {
       sortBy,
       descending
     ) {
-      originalRows = await API("auth.findcamip", { filter });
-      const data = originalRows;
+      // originalRows = await API("auth.findcamip", { filter });
+      const data = rows123;
 
       // handle sortBy
       if (sortBy) {
@@ -450,6 +481,7 @@ export default {
     // emulate 'SELECT count(*) FROM ...WHERE...'
     function getRowsNumberCount() {
       return originalRows.length;
+      // return rows123.length;
     }
 
     function onRequest(props) {
