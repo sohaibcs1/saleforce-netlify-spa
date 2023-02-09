@@ -207,7 +207,7 @@ export default {
               "3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3",
             client_secret:
               "62F4A81CC57C95EA82B3B824035D2ABCB732B53154E2F96A62B685FE66A985D6",
-            redirect_uri: "https://zingy-gingersnap-8c57f7.netlify.app/#/login",
+            redirect_uri: "https://zingy-gingersnap-8c57f7.netlify.app",
             code: code,
           }
         );
