@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ul>
+    <q-btn @click="getav">Get Data</q-btn>
+    <ul v-if="data">
       <li v-for="item in data" :key="item">{{ item.Name }}</li>
     </ul>
   </div>
