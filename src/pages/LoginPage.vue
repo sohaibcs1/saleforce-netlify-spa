@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     async getav() {
-      window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app&response_type=code`;
+      window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login&response_type=code`;
     },
     async getData() {
       try {

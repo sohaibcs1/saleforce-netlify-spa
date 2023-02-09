@@ -195,6 +195,7 @@ export default {
         // https://login.salesforce.com/services/oauth2/authorize?client_id=client_id&redirect_uri=redirect_uri&response_type=code
         // https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUNpQD9QxvcveUs7jKTZ8cuRwCe.ZRPqPhSWbUXkVXsASwuxH2kgsD7dGsxMz&redirect_uri=https://13ef-176-32-21-209.eu.ngrok.io/callback&response_type=code
         // Get the authorization code from the query parameters
+
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get("code");
 
@@ -207,7 +208,7 @@ export default {
               "3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3",
             client_secret:
               "62F4A81CC57C95EA82B3B824035D2ABCB732B53154E2F96A62B685FE66A985D6",
-            redirect_uri: "https://zingy-gingersnap-8c57f7.netlify.app",
+            redirect_uri: "https://zingy-gingersnap-8c57f7.netlify.app/#/login",
             code: code,
           }
         );
