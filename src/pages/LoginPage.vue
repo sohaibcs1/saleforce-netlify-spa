@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-btn @click="getData">Get Data</q-btn>
+    <q-btn @click="getav">Get Data</q-btn>
     <ul v-if="data">
       <li v-for="item in data" :key="item">{{ item.Name }}</li>
     </ul>
@@ -17,10 +17,13 @@ export default {
     };
   },
   methods: {
+    async getav() {
+      window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/home&response_type=code`;
+    },
     async getData() {
       try {
         // Redirect the user to the authorization endpoint
-        window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login&response_type=code`;
+
         // https://login.salesforce.com/services/oauth2/authorize?client_id=client_id&redirect_uri=redirect_uri&response_type=code
         // https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUNpQD9QxvcveUs7jKTZ8cuRwCe.ZRPqPhSWbUXkVXsASwuxH2kgsD7dGsxMz&redirect_uri=https://13ef-176-32-21-209.eu.ngrok.io/callback&response_type=code
         // Get the authorization code from the query parameters

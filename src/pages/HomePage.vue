@@ -67,7 +67,12 @@
       <!-- 10 col START-->
       <div class="col-10 col-xs-11 q-col-gutter-none" style="overflow: hidden">
         <!--  importent START-->
-
+        <ul>
+          hellofjgfjgjfj
+          <li v-for="item in data" :key="item">
+            {{ item.Name }}
+          </li>
+        </ul>
         <leads></leads>
         <!-- NOt importent END -->
       </div>
@@ -146,6 +151,7 @@
 // import API, { REAL_TIME } from 'src/api'
 import leads from "src/components/leadsCom.vue";
 import { ref } from "vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -154,6 +160,7 @@ export default {
 
   data() {
     return {
+      data: null,
       show_dialog: ref(false),
       group1: ref(["op1"]),
       group2: ref(["op1"]),
@@ -177,9 +184,51 @@ export default {
     // });
     // API('home.getNumbers', {});
     // API("auth.createCam", { last_checked: "12:30 PM", full_name: "Michael Oddoye",email_address:"Michael.Oddoye@gmail.com",job_title:"Team Lead",company:"Salesforce"});
+    this.getData();
   },
 
   methods: {
+    async getData() {
+      try {
+        // Redirect the user to the authorization endpoint
+
+        // https://login.salesforce.com/services/oauth2/authorize?client_id=client_id&redirect_uri=redirect_uri&response_type=code
+        // https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUNpQD9QxvcveUs7jKTZ8cuRwCe.ZRPqPhSWbUXkVXsASwuxH2kgsD7dGsxMz&redirect_uri=https://13ef-176-32-21-209.eu.ngrok.io/callback&response_type=code
+        // Get the authorization code from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get("code");
+
+        // Use the authorization code to request an access token
+        const accessTokenResponse = await axios.post(
+          "https://login.salesforce.com/services/oauth2/token",
+          {
+            grant_type: "authorization_code",
+            client_id:
+              "3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3",
+            client_secret:
+              "62F4A81CC57C95EA82B3B824035D2ABCB732B53154E2F96A62B685FE66A985D6",
+            redirect_uri: "https://zingy-gingersnap-8c57f7.netlify.app/#/home",
+            code: code,
+          }
+        );
+        const accessToken = accessTokenResponse.data.access_token;
+        const apiResponse = await axios.get(
+          "https://UM8.salesforce.com/services/data/v57.0/query",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            params: {
+              q: "SELECT Name FROM Account LIMIT 10",
+            },
+          }
+        );
+        console.log(apiResponse + "kkkkkkk");
+        this.data = apiResponse.data.records;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     ab() {
       var conn = new jsforce.Connection();
       conn.login("test@winrate.io", "Michael123!", function (err, res) {
