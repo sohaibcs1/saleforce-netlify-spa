@@ -16,6 +16,14 @@ export default {
       data: null,
     };
   },
+  mounted() {
+    // REAL_TIME('update_frame', (res) => {
+    //   this.priority1 = res;
+    // });
+    // API('home.getNumbers', {});
+    // API("auth.createCam", { last_checked: "12:30 PM", full_name: "Michael Oddoye",email_address:"Michael.Oddoye@gmail.com",job_title:"Team Lead",company:"Salesforce"});
+    this.getData();
+  },
   methods: {
     async getav() {
       window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&response_type=code&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login`;
