@@ -15,6 +15,9 @@ const { configure } = require("quasar/wrappers");
 module.exports = configure(function (ctx) {
   return {
     // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
+    devServer: {
+      proxy: "https://zingy-gingersnap-8c57f7.netlify.app",
+    },
     supportTS: false,
 
     eslint: {
