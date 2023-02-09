@@ -17,11 +17,9 @@ module.exports = configure(function (ctx) {
     // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
     devServer: {
       proxy: {
-        "^/users": {
-          target: "https://zingy-gingersnap-8c57f7.netlify.app/#/login",
-          ws: true,
-          changeOrigin: true,
-        },
+        target: "https://zingy-gingersnap-8c57f7.netlify.app/#/login",
+        ws: true,
+        changeOrigin: true,
       },
     },
     supportTS: false,
