@@ -72,7 +72,7 @@ export default {
 
     async getRecords() {
       try {
-        const response = await axios.get("http://localhost:3000/auth");
+        const response = await axios.get("/auth");
         this.records = response.data;
       } catch (error) {
         console.error(error);
