@@ -68,7 +68,9 @@
       <div class="col-10 col-xs-11 q-col-gutter-none" style="overflow: hidden">
         <!--  importent START-->
         <ul>
-          hellofjgfjgjfj
+          {{
+            records
+          }}
           <li v-for="item in data" :key="item">
             {{ item.Name }}
           </li>
@@ -160,6 +162,7 @@ export default {
 
   data() {
     return {
+      records: [],
       data: null,
       show_dialog: ref(false),
       group1: ref(["op1"]),
@@ -184,10 +187,18 @@ export default {
     // });
     // API('home.getNumbers', {});
     // API("auth.createCam", { last_checked: "12:30 PM", full_name: "Michael Oddoye",email_address:"Michael.Oddoye@gmail.com",job_title:"Team Lead",company:"Salesforce"});
-    this.getData();
+    this.getRecords();
   },
 
   methods: {
+    async getRecords() {
+      try {
+        const response = await axios.get("/auth");
+        this.records = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     async getData() {
       try {
         // Redirect the user to the authorization endpoint
