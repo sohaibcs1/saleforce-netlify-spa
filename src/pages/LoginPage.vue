@@ -16,7 +16,7 @@ export default {
       data: null,
     };
   },
-  mounted() {
+  created() {
     // REAL_TIME('update_frame', (res) => {
     //   this.priority1 = res;
     // });
