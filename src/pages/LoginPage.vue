@@ -30,9 +30,17 @@ export default {
           {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: `grant_type=authorization_code&client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&client_secret=62F4A81CC57C95EA82B3B824035D2ABCB732B53154E2F96A62B685FE66A985D6&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login&code=${code}`,
+            body: `grant_type=${encodeURIComponent(
+              "authorization_code"
+            )}&client_id=${encodeURIComponent(
+              "3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3"
+            )}&client_secret=${encodeURIComponent(
+              "62F4A81CC57C95EA82B3B824035D2ABCB732B53154E2F96A62B685FE66A985D6"
+            )}&redirect_uri=${encodeURIComponent(
+              "https://zingy-gingersnap-8c57f7.netlify.app/#/login"
+            )}&code=${encodeURIComponent(code)}`,
           }
         );
 
