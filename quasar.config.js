@@ -82,12 +82,12 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
     devServer: {
-      // proxy: "https://zingy-gingersnap-8c57f7.netlify.app",
-      server: {
-        type: "http",
-      },
-      port: 8080,
-      open: true, // opens browser window automatically
+      proxy: "https://zingy-gingersnap-8c57f7.netlify.app",
+      // server: {
+      //   type: "http",
+      // },
+      // port: 8080,
+      // open: true,
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
