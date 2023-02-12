@@ -22,7 +22,7 @@ export default {
     // });
     // API('home.getNumbers', {});
     // API("auth.createCam", { last_checked: "12:30 PM", full_name: "Michael Oddoye",email_address:"Michael.Oddoye@gmail.com",job_title:"Team Lead",company:"Salesforce"});
-    this.getData();
+    this.getRecords();
   },
   methods: {
     async getav() {
@@ -65,6 +65,15 @@ export default {
         );
 
         this.data = apiResponse.data.records;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async getRecords() {
+      try {
+        const response = await axios.get("http://localhost:3000/auth");
+        this.records = response.data;
       } catch (error) {
         console.error(error);
       }
