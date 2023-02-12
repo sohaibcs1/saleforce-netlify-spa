@@ -39,17 +39,14 @@ export default {
         const accessTokenData = await accessTokenResponse.json();
         const accessToken = accessTokenData.access_token;
 
-        const apiResponse = await fetch(
-          "https://UM8.salesforce.com/services/data/v57.0/query",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-            params: {
-              q: "SELECT Name FROM Account LIMIT 10",
-            },
-          }
-        );
+        const apiResponse = await fetch("/api/services/data/v57.0/query", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          params: {
+            q: "SELECT Name FROM Account LIMIT 10",
+          },
+        });
 
         const apiData = await apiResponse.json();
         this.data = apiData.records;
