@@ -87,6 +87,8 @@ module.exports = configure(function (ctx) {
           target: "https://UM8.salesforce.com",
           changeOrigin: true,
         },
+      },
+    },
     //   server: {
     //     type: "http",
     //   },
