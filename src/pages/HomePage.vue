@@ -201,7 +201,7 @@ export default {
 
         // Use the authorization code to request an access token
         const accessTokenResponse = await axios.post(
-          "https://test.salesforce.com/services/oauth2/token",
+          "https://login.salesforce.com/services/oauth2/token",
           {
             grant_type: "authorization_code",
             client_id:

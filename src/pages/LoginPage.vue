@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     async getav() {
-      window.location.href = `https://test.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&response_type=code&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login`;
+      window.location.href = `https://login.salesforce.com/services/oauth2/authorize?client_id=3MVG9DREgiBqN9Wmlb9Hnby7AUEJb.iiEalt328_cNrVl6IHo8mzw1RpoyJWeypdCAZnm9zrb_7..azvf73l3&response_type=code&redirect_uri=https://zingy-gingersnap-8c57f7.netlify.app/#/login`;
     },
     async getData() {
       try {
@@ -26,7 +26,7 @@ export default {
         const code = urlParams.get("code");
 
         const accessTokenResponse = await fetch(
-          "https://test.salesforce.com/services/oauth2/token",
+          "https://login.salesforce.com/services/oauth2/token",
           {
             method: "POST",
             headers: {
